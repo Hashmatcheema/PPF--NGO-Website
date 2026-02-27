@@ -98,9 +98,10 @@ export function Header({
       <div className="wrap flex h-16 items-center justify-between md:h-18">
         <a
           href="#hero"
-          className={`font-display text-lg font-bold ${solid ? "text-[var(--color-text)]" : "text-white"}`}
+          className="flex items-center gap-3"
         >
-          PPF
+          <img src="/images/PPF-logo.jpg" alt="PPF Logo" className="h-10 w-auto rounded-sm object-contain" />
+          <span className={`font-display text-xl font-bold ${solid ? "text-[var(--color-text)]" : "text-white"}`}>PPF</span>
         </a>
 
         <nav className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8">

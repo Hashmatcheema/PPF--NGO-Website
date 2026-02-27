@@ -6,9 +6,12 @@ export function Footer({ lang }: { lang: Locale }) {
   return (
     <footer className="bg-[#0a0e0c] border-t border-white/10 py-12">
       <div className="wrap flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
-        <div className="flex items-baseline gap-2">
-          <span className="font-display text-xl font-bold text-white">PPF</span>
-          <span className="text-sm text-white/70">{t.siteName}</span>
+        <div className="flex items-center gap-4">
+          <img src="/images/PPF-logo.jpg" alt="PPF Logo" className="h-12 w-auto rounded-md object-contain" />
+          <div className="flex flex-col items-start gap-0.5">
+            <span className="font-display text-xl font-bold text-white">PPF</span>
+            <span className="text-sm text-white/70">{t.siteName}</span>
+          </div>
         </div>
         <p className="text-sm text-white/70">{t.footer.tagline}</p>
         <nav className="flex gap-6 text-sm text-white/70">

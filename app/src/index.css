@@ -77,26 +77,12 @@ body {
   font-family: "Syne", system-ui, sans-serif;
 }
 
-/* Hero overlay: white shadow in light mode (slightly darker at bottom, lighter up), black in dark mode */
+/* Hero overlay: dark shadow in all modes to ensure text legibility */
 .hero-overlay {
-  background: linear-gradient(to top,
-      rgba(255, 255, 255, 0.62) 0%,
-      rgba(255, 255, 255, 0.28) 50%,
-      rgba(255, 255, 255, 0.06) 100%);
-}
-
-.dark .hero-overlay {
   background: linear-gradient(to top,
       rgba(10, 14, 12, 0.92) 0%,
       rgba(10, 14, 12, 0.4) 50%,
       rgba(10, 14, 12, 0.15) 100%);
-}
-
-/* Hero text: dark on white overlay in light mode, light on dark overlay in dark mode */
-:root:not(.dark) .hero-content {
-  --color-text: #1c1c1a;
-  --color-text-muted: #5a5a56;
-  --color-accent: #c9940f;
 }
 
 /* Card Shadows for Light and Dark Modes */
