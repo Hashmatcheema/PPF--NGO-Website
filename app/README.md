@@ -25,6 +25,14 @@ npm run build
 
 Output is in `dist/`. Deploy that folder to any static host.
 
+### Recommended Vercel Deployment
+
+For the easiest seamless automated deployment through Vercel:
+1. Go to your **Vercel Project Dashboard**.
+2. Click **Settings** -> **General**.
+3. Scroll down to **Root Directory**, type `app`, and click **Save**.
+4. Now, Vercel will build this React website automatically every time you push to GitHub, out of this folder!
+
 ## Images (Gaza & Palestine cause)
 
 All image URLs are in **`src/data/images.ts`**. They currently point to humanitarian/solidarity-themed placeholders (Unsplash). To use your own Gaza/Palestine imagery:
