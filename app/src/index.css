@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Light theme (default) */
+@theme inline {
+  --color-bg: #fffefb;
+  --color-bg-elevated: #f8f6f2;
+  --color-surface: #f8f6f2;
+  --color-border: #d4d0c8;
+  --color-text: #1c1c1a;
+  --color-text-muted: #5a5a56;
+  --color-accent: #c9940f;
+  --color-accent-hover: #a67a0c;
+  --radius: 0.375rem;
+}
+
+/* Dark theme (when .dark on html) */
+.dark {
+  --color-bg: #0a0e0c;
+  --color-bg-elevated: #111814;
+  --color-surface: #161c18;
+  --color-border: #2a332e;
+  --color-text: #e8e6e3;
+  --color-text-muted: #9ca39b;
+  --color-accent: #c9a227;
+  --color-accent-hover: #d4af37;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Override shadcn/radix if needed */
+[data-slot] {
+  border-color: var(--color-border);
+}
+
+/* Pro container */
+.wrap {
+  width: 100%;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .wrap { padding-left: 2rem; padding-right: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .wrap { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+.font-display {
+  font-family: "Syne", system-ui, sans-serif;
+}
+
+/* Hero overlay: white shadow in light mode (slightly darker at bottom, lighter up), black in dark mode */
+.hero-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+}
+.dark .hero-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 14, 12, 0.92) 0%,
+    rgba(10, 14, 12, 0.4) 50%,
+    rgba(10, 14, 12, 0.15) 100%
+  );
+}
+
+/* Hero text: dark on white overlay in light mode, light on dark overlay in dark mode */
+:root:not(.dark) .hero-content {
+  --color-text: #1c1c1a;
+  --color-text-muted: #5a5a56;
+  --color-accent: #c9940f;
+}

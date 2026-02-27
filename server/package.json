@@ -1,0 +1,18 @@
+{
+  "name": "ppf-cta-api",
+  "version": "1.0.0",
+  "description": "PPF CTA config API — GET/PUT for editable call-to-action content",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}
