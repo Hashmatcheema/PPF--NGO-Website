@@ -7,7 +7,7 @@ import { useCtasConfig } from "@/contexts/CtasContext"
 import { JoinUsButton } from "@/components/JoinUsButton"
 
 const links = [
-  { id: "about", key: "mission" as const },
+  { id: "mission", key: "mission" as const },
   { id: "presence", key: "where" as const },
   { id: "impact", key: "impact" as const },
   { id: "act", key: "act" as const },
@@ -42,7 +42,7 @@ export function Header({
       if (window.scrollY > 50) {
         timeoutId = setTimeout(() => {
           setVisible(false)
-        }, 1500)
+        }, 300)
       }
     }
     window.addEventListener("scroll", onScroll, { passive: true })
