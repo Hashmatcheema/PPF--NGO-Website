@@ -2,12 +2,11 @@ import { useEffect, useLayoutEffect, useState } from "react"
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, MapPin } from "lucide-react"
+import { MapPin } from "lucide-react"
 import type { Locale } from "@/data/content"
 import { content } from "@/data/content"
 import { MAP_PLACE_LABELS } from "@/data/mapPlaceLabels"
-import type { Theme } from "@/App"
+
 
 // Fix for default Leaflet marker icons in React (we use custom DivIcons)
 delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: unknown })._getIconUrl
@@ -18,7 +17,7 @@ L.Icon.Default.mergeOptions({
 })
 
 const locations = [
-  { name: "Islamabad (HQ)", coords: [33.6844, 73.0479] as [number, number], role: "Headquarters" },
+  { name: "Islamabad", coords: [33.6844, 73.0479] as [number, number], role: "Headquarters" },
   { name: "Karachi", coords: [24.8607, 67.0011] as [number, number], role: "Regional Hub" },
   { name: "Lahore", coords: [31.5204, 74.3587] as [number, number], role: "Coordination Center" },
   { name: "Peshawar", coords: [34.0151, 71.5249] as [number, number], role: "Volunteer Base" },
@@ -86,6 +85,15 @@ function MapController() {
     const bounds = L.latLngBounds(locations.map((loc) => loc.coords))
     map.fitBounds(bounds, { padding: [30, 30] })
   }, [map])
+  useEffect(() => {
+    const handleFlyTo = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      map.flyTo(customEvent.detail.coords, 8, { duration: 1.5 });
+    };
+    window.addEventListener('flyToLoc', handleFlyTo);
+    return () => window.removeEventListener('flyToLoc', handleFlyTo);
+  }, [map])
+
   return null
 }
 
@@ -123,12 +131,11 @@ function getTileAttribution(lang: Locale): string {
   return '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }
 
-export function WhereWeExist({ lang, theme }: { lang: Locale; theme: Theme }) {
+export function WhereWeExist({ lang }: { lang: Locale }) {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
   const t = content[lang].nation
-  const isDark = theme === "dark"
   const tileUrl = getTileUrl(lang)
   const tileAttribution = getTileAttribution(lang)
 
@@ -166,27 +173,16 @@ export function WhereWeExist({ lang, theme }: { lang: Locale; theme: Theme }) {
               </div>
             ))}
           </div>
-          <div>
-            <Button
-              asChild
-              size="lg"
-              className="h-14 rounded-full bg-[var(--color-accent)] px-8 text-lg text-[var(--color-bg)] shadow-lg transition hover:bg-[var(--color-accent-hover)]"
-            >
-              <a href="#contact">
-                {t.cta} <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </div>
         </div>
 
         {/* Right Map & List Container */}
         <div
-          className={`relative flex flex-col p-4 lg:p-6 w-full lg:w-5/12 items-center justify-center ${isDark ? "bg-[#111]" : "bg-[var(--color-surface)]"}`}
+          className="relative flex flex-col p-4 lg:p-6 w-full lg:w-5/12 items-center justify-center bg-[#111]"
         >
           {/* Map Section */}
           {mounted && (
             <div
-              className={`relative z-0 h-[400px] lg:h-[500px] w-full max-w-lg lg:max-w-none overflow-hidden rounded-2xl shadow-xl border border-[var(--color-border)] ${isDark ? "map-dark" : "map-grayscale"}`}
+              className="relative z-0 h-[400px] lg:h-[500px] w-full max-w-lg lg:max-w-none overflow-hidden rounded-2xl shadow-xl border border-[var(--color-border)] map-dark"
             >
               <MapContainer
                 center={[30.5, 70]}

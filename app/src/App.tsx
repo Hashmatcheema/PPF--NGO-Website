@@ -35,15 +35,15 @@ function App() {
   const [theme, setTheme] = useState<Theme>(() => {
     try {
       const stored = localStorage.getItem("ppf-theme")
-      return (stored === "light" || stored === "dark" ? stored : "dark") as Theme
+      return (stored === "light" || stored === "dark" ? stored : "light") as Theme
     } catch {
-      return "dark"
+      return "light"
     }
   })
 
   useEffect(() => {
     document.documentElement.lang = lang
-    document.documentElement.dir = lang === "ur" ? "rtl" : "ltr"
+    document.documentElement.dir = "ltr"
   }, [lang])
 
   useEffect(() => {
@@ -63,13 +63,13 @@ function App() {
   useEffect(() => {
     try {
       localStorage.setItem("ppf-lang", lang)
-    } catch {}
+    } catch { }
   }, [lang])
 
   useEffect(() => {
     try {
       localStorage.setItem("ppf-theme", theme)
-    } catch {}
+    } catch { }
   }, [theme])
 
   return (
@@ -79,7 +79,7 @@ function App() {
         <main>
           <Hero lang={lang} />
           <About lang={lang} />
-          <WhereWeExist lang={lang} theme={theme} />
+          <WhereWeExist lang={lang} />
           <Impact lang={lang} />
           <Act lang={lang} />
           <FAQ lang={lang} />

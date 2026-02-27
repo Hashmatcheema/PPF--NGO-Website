@@ -18,14 +18,16 @@ export function Act({ lang }: { lang: Locale }) {
         <div className="mt-16 grid gap-8 md:grid-cols-2 md:gap-12">
           <div
             id="volunteer"
-            className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8"
+            className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-card"
           >
             <h3 className="font-display text-xl font-semibold text-[var(--color-text)]">
               {t.volunteer.title}
             </h3>
             <p className="mt-2 text-sm text-[var(--color-text-muted)]">{t.volunteer.body}</p>
             <a
-              href="#contact"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdwj320Vrztwsz5QbK9dOzIALaUhShFgSwfsw-LWbKkGoKCZg/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex h-11 items-center justify-center rounded-md border border-[var(--color-accent)] px-6 text-sm font-semibold text-[var(--color-accent)] transition hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)]"
             >
               {t.volunteer.cta}
@@ -33,7 +35,7 @@ export function Act({ lang }: { lang: Locale }) {
           </div>
           <div
             id="donate"
-            className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8"
+            className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-card"
           >
             <h3 className="font-display text-xl font-semibold text-[var(--color-text)]">
               {t.donate.title}
@@ -55,7 +57,7 @@ export function Act({ lang }: { lang: Locale }) {
           onClick={() => setShowDonate(false)}
         >
           <div
-            className="w-full max-w-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-xl animate-in fade-in zoom-in-95 duration-200"
+            className="w-full max-w-sm rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-card animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="mb-4 font-display text-xl font-bold text-[var(--color-text)]">

@@ -63,12 +63,9 @@ export const content = {
       names: ["Name One", "Name Two", "Name Three"],
       role: "Role / Title",
       members: [
-        { name: "Name One", role: "Role / Title", imageKey: "team1" as const },
-        { name: "Name Two", role: "Role / Title", imageKey: "team2" as const },
-        { name: "Name Three", role: "Role / Title", imageKey: "team3" as const },
-        { name: "Name Four", role: "Role / Title", imageKey: "team4" as const },
-        { name: "Name Five", role: "Role / Title", imageKey: "team5" as const },
-        { name: "Name Six", role: "Role / Title", imageKey: "team6" as const },
+        { name: "Ayesha Khan", role: "Coordination Head", imageKey: "team1" as const },
+        { name: "Bilal Ahmed", role: "Relief Operations", imageKey: "team2" as const },
+        { name: "Fatima Ali", role: "Volunteer Lead", imageKey: "team3" as const },
       ],
     },
     contact: {
@@ -151,12 +148,9 @@ export const content = {
       names: ["نام ایک", "نام دو", "نام تین"],
       role: "کردار / عنوان",
       members: [
-        { name: "نام ایک", role: "کردار / عنوان", imageKey: "team1" as const },
-        { name: "نام دو", role: "کردار / عنوان", imageKey: "team2" as const },
-        { name: "نام تین", role: "کردار / عنوان", imageKey: "team3" as const },
-        { name: "نام چار", role: "کردار / عنوان", imageKey: "team4" as const },
-        { name: "نام پانچ", role: "کردار / عنوان", imageKey: "team5" as const },
-        { name: "نام چھ", role: "کردار / عنوان", imageKey: "team6" as const },
+        { name: "عائشہ خان", role: "کوآرڈینیشن ہیڈ", imageKey: "team1" as const },
+        { name: "بلال احمد", role: "امدادی کارروائیاں", imageKey: "team2" as const },
+        { name: "فاطمہ علی", role: "رضاکار لیڈ", imageKey: "team3" as const },
       ],
     },
     contact: {
